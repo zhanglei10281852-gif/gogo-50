@@ -1,0 +1,4 @@
+{"timestamp":"2025-03-01T10:00:00Z","level":"INFO","source":"gateway","message":"service started","region":"west"}
+{"timestamp":"2025-03-01T10:01:00Z","level":"ERROR","source":"gateway","message":"upstream request failed 502","region":"west"}
+{"timestamp":"2025-03-01T10:02:00Z","level":"ERROR","source":"gateway","message":"upstream connection reset","region":"west"}
+{"timestamp":"2025-03-01T10:03:00Z","level":"WARN","source":"worker","message":"queue depth high","depth":81}

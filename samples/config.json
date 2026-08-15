@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "store": "../runtime",
+  "inputs": [
+    {
+      "name": "sample-jsonl",
+      "path": "events.jsonl",
+      "format": "jsonl",
+      "source": "sample",
+      "time_field": "timestamp",
+      "level_field": "level",
+      "source_field": "source",
+      "message_field": "message",
+      "timestamp_layouts": ["2006-01-02T15:04:05Z07:00"],
+      "multiline": { "enabled": false, "max_lines": 100 }
+    }
+  ],
+  "rules": [
+    {
+      "id": "repeated-gateway-errors",
+      "title": "Repeated gateway errors",
+      "enabled": true,
+      "severity": "ERROR",
+      "all": [{ "field": "level", "op": "gte", "value": "ERROR" }],
+      "group_by": ["source"],
+      "threshold": 2,
+      "window": "5m",
+      "cooldown": "10m",
+      "resolve_after": "30m",
+      "labels": { "team": "operations" }
+    }
+  ],
+  "retention": {
+    "event_days": 30,
+    "incident_days": 90,
+    "deduplicate": true,
+    "snapshot_before_compact": true
+  }
+}

@@ -1,0 +1,3 @@
+timestamp,level,source,message,region
+2025-03-01T11:00:00Z,INFO,scheduler,cycle complete,east
+2025-03-01T11:01:00Z,ERROR,scheduler,job execution failed,east
