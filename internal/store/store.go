@@ -322,7 +322,7 @@ func (s *Store) RestoreSnapshot(name string) error {
 			return err
 		}
 	}
-	return nil
+	return s.RebuildIndex()
 }
 
 func (s *Store) refreshMetadata(events []model.Event, incidents []model.Incident) error {
